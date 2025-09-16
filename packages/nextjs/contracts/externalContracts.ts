@@ -14,7 +14,7 @@ import { GenericContractsDeclaration } from "~~/utils/scaffold-eth/contract";
 const externalContracts = {
   42161: {
     BatchRegistry: {
-      address: "0x0",
+      address: "0xc319fdBc487560A90bF1d7f9113CD1E588AB2E50",
       abi: [
         {
           inputs: [
@@ -363,9 +363,10 @@ const externalContracts = {
         renounceOwnership: "@openzeppelin/contracts/access/Ownable.sol",
         transferOwnership: "@openzeppelin/contracts/access/Ownable.sol",
       },
+      deployedOnBlock: 379755149,
     },
     BatchGraduationNFT: {
-      address: "0x0",
+      address: "0x321d32875d46774BBD9B55483B7f96d99E470B6e",
       abi: [
         {
           inputs: [
@@ -821,6 +822,7 @@ const externalContracts = {
           type: "function",
         },
       ],
+      deployedOnBlock: 379755149,
     },
   },
 } as const;
