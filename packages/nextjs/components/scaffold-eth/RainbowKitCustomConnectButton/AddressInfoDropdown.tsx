@@ -4,9 +4,11 @@ import { getAddress } from "viem";
 import { Address } from "viem";
 import { useAccount, useDisconnect } from "wagmi";
 import {
+  AcademicCapIcon,
   ArrowLeftOnRectangleIcon,
   ArrowTopRightOnSquareIcon,
   ArrowsRightLeftIcon,
+  CheckBadgeIcon,
   CheckCircleIcon,
   ChevronDownIcon,
   DocumentDuplicateIcon,
@@ -14,7 +16,7 @@ import {
   QrCodeIcon,
 } from "@heroicons/react/24/outline";
 import { BlockieAvatar, isENS } from "~~/components/scaffold-eth";
-import { useCopyToClipboard, useOutsideClick } from "~~/hooks/scaffold-eth";
+import { useCopyToClipboard, useOutsideClick, useScaffoldReadContract } from "~~/hooks/scaffold-eth";
 import { getTargetNetworks } from "~~/utils/scaffold-eth";
 
 const BURNER_WALLET_ID = "burnerWallet";
@@ -50,6 +52,22 @@ export const AddressInfoDropdown = ({
 
   useOutsideClick(dropdownRef, closeDropdown);
 
+  // fetch member / checked in status of connected wallet
+  const ADDRESS_ZERO = "0x0000000000000000000000000000000000000000";
+  const isBatchMember = useScaffoldReadContract({
+    contractName: "BatchRegistry",
+    functionName: "allowList",
+    args: [checkSumAddress],
+  });
+
+  const yourContractAddress = useScaffoldReadContract({
+    contractName: "BatchRegistry",
+    functionName: "yourContractAddress",
+    args: [checkSumAddress],
+  });
+
+  const isCheckedIn = typeof yourContractAddress.data === "string" && yourContractAddress.data !== ADDRESS_ZERO;
+
   return (
     <>
       <details ref={dropdownRef} className="dropdown dropdown-end leading-3">
@@ -62,6 +80,21 @@ export const AddressInfoDropdown = ({
         </summary>
         <ul className="dropdown-content menu z-2 p-2 mt-2 shadow-center shadow-accent bg-base-200 rounded-box gap-1">
           <NetworkOptions hidden={!selectingNetwork} />
+          <li className={selectingNetwork ? "hidden" : ""}>
+            {isCheckedIn ? (
+              <label htmlFor="wallet-info-modal" className="h-8 btn-sm rounded-xl! flex gap-3 py-3">
+                <CheckBadgeIcon className="h-6 w-4 ml-2 sm:ml-0" />
+                <span className="whitespace-nowrap">Checked In</span>
+              </label>
+            ) : (
+              isBatchMember.data && (
+                <label htmlFor="wallet-info-modal" className="h-8 btn-sm rounded-xl! flex gap-3 py-3">
+                  <AcademicCapIcon className="h-6 w-4 ml-2 sm:ml-0" />
+                  <span className="whitespace-nowrap">Batch 20 Member</span>
+                </label>
+              )
+            )}
+          </li>
           <li className={selectingNetwork ? "hidden" : ""}>
             <div
               className="h-8 btn-sm rounded-xl! flex gap-3 py-3 cursor-pointer"
