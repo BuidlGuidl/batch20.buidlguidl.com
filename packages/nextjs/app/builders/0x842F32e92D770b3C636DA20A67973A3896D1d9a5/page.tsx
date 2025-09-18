@@ -55,21 +55,23 @@ const NeteroPage: NextPage = () => {
           </div>
         </div>
 
+        <p className="mt-5 text-zinc-700 dark:text-zinc-200">Freelancer from Vietnam 🇻🇳</p>
+        <p className="mt-5 text-zinc-700 dark:text-zinc-200">Chainlink marine since 2020</p>
         <p className="mt-5 text-zinc-700 dark:text-zinc-200">
-          Freelancer from Vietnam 🇻🇳 Currently I&apos;m learning Cairo, and ZK (still stucking with the math lol).
+          Learning Cairo, and ZK (still stucking with the math lol).
         </p>
 
         <div className="mt-6">
-          <h2 className="text-sm uppercase tracking-wider text-zinc-500 dark:text-zinc-400">Focus Areas</h2>
+          <h2 className="text-sm uppercase tracking-wider text-zinc-500 dark:text-zinc-400">Tech stack</h2>
           <div className="mt-2 flex flex-wrap gap-2">
             <span className="text-xs px-2 py-1 rounded-full border border-zinc-300 dark:border-zinc-700 bg-zinc-100 dark:bg-zinc-800 text-zinc-700 dark:text-zinc-300">
-              Security
+              Solidity
             </span>
             <span className="text-xs px-2 py-1 rounded-full border border-zinc-300 dark:border-zinc-700 bg-zinc-100 dark:bg-zinc-800 text-zinc-700 dark:text-zinc-300">
-              Smart Contracts
+              Rust
             </span>
             <span className="text-xs px-2 py-1 rounded-full border border-zinc-300 dark:border-zinc-700 bg-zinc-100 dark:bg-zinc-800 text-zinc-700 dark:text-zinc-300">
-              AI/ML
+              Typescript
             </span>
           </div>
         </div>
@@ -79,7 +81,12 @@ const NeteroPage: NextPage = () => {
             <h3 className="font-medium text-zinc-900 dark:text-zinc-100">Links</h3>
             <ul className="mt-2 space-y-1 text-sm">
               <li>
-                <a className="underline" href="https://github.com/0xNetero" target="_blank" rel="noreferrer">
+                <a
+                  className="underline"
+                  href="https://github.com/0xnetero?tab=repositories"
+                  target="_blank"
+                  rel="noreferrer"
+                >
                   Github Repos
                 </a>
               </li>
