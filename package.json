@@ -57,8 +57,5 @@
   },
   "engines": {
     "node": ">=20.18.3"
-  },
-  "dependencies": {
-    "viem": "^1.19.14"
   }
 }
