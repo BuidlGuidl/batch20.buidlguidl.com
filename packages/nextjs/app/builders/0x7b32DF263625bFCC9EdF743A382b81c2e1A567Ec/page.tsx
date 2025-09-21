@@ -10,6 +10,43 @@ export const metadata: Metadata = {
 
 const ADDRESS = "0x7b32DF263625bFCC9EdF743A382b81c2e1A567Ec";
 
+// Clean data sources for rendering lists
+const TECH_STACK = ["Solidity", "Foundry", "Hardhat", "Huff", "Yul", "TypeScript", "Next.js", "Python", "Go"] as const;
+
+const SOCIALS: Array<{
+  href: string;
+  label: string;
+  handle: string;
+  icon: string;
+  width?: number;
+  height?: number;
+}> = [
+  {
+    href: "https://github.com/Vk1033",
+    label: "GitHub",
+    handle: "Vk1033",
+    icon: "/github-icon.png",
+    width: 20,
+    height: 20,
+  },
+  {
+    href: "https://x.com/0xVanqshr",
+    label: "X",
+    handle: "0xVanqshr",
+    icon: "/x-icon.png",
+    width: 26,
+    height: 26,
+  },
+  {
+    href: "https://vk1033.vercel.app",
+    label: "Portfolio",
+    handle: "vk1033.vercel.app",
+    icon: "/logo.svg",
+    width: 20,
+    height: 20,
+  },
+];
+
 const Vk1033Page: NextPage = () => {
   return (
     <main className="min-h-screen bg-gradient-to-b from-white to-zinc-50 dark:from-black dark:to-zinc-950 text-zinc-900 dark:text-zinc-100">
@@ -71,33 +108,14 @@ const Vk1033Page: NextPage = () => {
             <div className="rounded-2xl border border-zinc-200 dark:border-zinc-800 bg-white/70 dark:bg-zinc-900/60 backdrop-blur p-5 shadow-sm">
               <h2 className="text-sm uppercase tracking-wider text-zinc-500 dark:text-zinc-400">Tech. Stack</h2>
               <div className="mt-3 flex flex-wrap gap-2">
-                <span className="text-xs px-2 py-1 rounded-md bg-zinc-100 dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-700">
-                  Solidity
-                </span>
-                <span className="text-xs px-2 py-1 rounded-md bg-zinc-100 dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-700">
-                  Foundry
-                </span>
-                <span className="text-xs px-2 py-1 rounded-md bg-zinc-100 dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-700">
-                  Hardhat
-                </span>
-                <span className="text-xs px-2 py-1 rounded-md bg-zinc-100 dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-700">
-                  Huff
-                </span>
-                <span className="text-xs px-2 py-1 rounded-md bg-zinc-100 dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-700">
-                  Yul
-                </span>
-                <span className="text-xs px-2 py-1 rounded-md bg-zinc-100 dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-700">
-                  TypeScript
-                </span>
-                <span className="text-xs px-2 py-1 rounded-md bg-zinc-100 dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-700">
-                  Next.js
-                </span>
-                <span className="text-xs px-2 py-1 rounded-md bg-zinc-100 dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-700">
-                  Python
-                </span>
-                <span className="text-xs px-2 py-1 rounded-md bg-zinc-100 dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-700">
-                  Go
-                </span>
+                {TECH_STACK.map(item => (
+                  <span
+                    key={item}
+                    className="text-xs px-2 py-1 rounded-md bg-zinc-100 dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-700"
+                  >
+                    {item}
+                  </span>
+                ))}
               </div>
             </div>
           </aside>
@@ -137,54 +155,26 @@ const Vk1033Page: NextPage = () => {
             <div className="rounded-2xl border border-zinc-200 dark:border-zinc-800 bg-white/70 dark:bg-zinc-900/60 backdrop-blur p-6 shadow-sm">
               <h2 className="text-lg font-semibold">Socials</h2>
               <div className="mt-3 grid grid-cols-1 sm:grid-cols-2 gap-3">
-                <Link
-                  href="https://github.com/Vk1033"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="group flex items-center gap-3 rounded-lg border border-zinc-200 dark:border-zinc-800 bg-zinc-50/70 dark:bg-zinc-900/40 hover:border-zinc-300 dark:hover:border-zinc-700 px-4 py-3 transition"
-                >
-                  <Image
-                    src="/github-icon.png"
-                    alt="GitHub"
-                    width={20}
-                    height={20}
-                    className="opacity-80 group-hover:opacity-100"
-                  />
-                  <span className="font-medium">GitHub</span>
-                  <span className="ml-auto text-xs text-zinc-500">Vk1033</span>
-                </Link>
-                <Link
-                  href="https://x.com/0xVanqshr"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="group flex items-center gap-3 rounded-lg border border-zinc-200 dark:border-zinc-800 bg-zinc-50/70 dark:bg-zinc-900/40 hover:border-zinc-300 dark:hover:border-zinc-700 px-4 py-3 transition"
-                >
-                  <Image
-                    src="/x-icon.png"
-                    alt="X (Twitter)"
-                    width={18}
-                    height={18}
-                    className="opacity-80 group-hover:opacity-100"
-                  />
-                  <span className="font-medium">X</span>
-                  <span className="ml-auto text-xs text-zinc-500">0xVanqshr</span>
-                </Link>
-                <Link
-                  href="https://vk1033.vercel.app"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="group flex items-center gap-3 rounded-lg border border-zinc-200 dark:border-zinc-800 bg-zinc-50/70 dark:bg-zinc-900/40 hover:border-zinc-300 dark:hover:border-zinc-700 px-4 py-3 transition"
-                >
-                  <Image
-                    src="/logo.svg"
-                    alt="Portfolio"
-                    width={20}
-                    height={20}
-                    className="opacity-80 group-hover:opacity-100"
-                  />
-                  <span className="font-medium">Portfolio</span>
-                  <span className="ml-auto text-xs text-zinc-500">vk1033.vercel.app</span>
-                </Link>
+                {SOCIALS.map(s => (
+                  <Link
+                    key={s.label}
+                    href={s.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    prefetch={false}
+                    className="group flex items-center gap-3 rounded-lg border border-zinc-200 dark:border-zinc-800 bg-zinc-50/70 dark:bg-zinc-900/40 hover:border-zinc-300 dark:hover:border-zinc-700 px-4 py-3 transition"
+                  >
+                    <Image
+                      src={s.icon}
+                      alt={s.label}
+                      width={s.width ?? 20}
+                      height={s.height ?? 20}
+                      className="opacity-80 group-hover:opacity-100"
+                    />
+                    <span className="font-medium">{s.label}</span>
+                    <span className="ml-auto text-xs text-zinc-500">{s.handle}</span>
+                  </Link>
+                ))}
               </div>
             </div>
           </section>
