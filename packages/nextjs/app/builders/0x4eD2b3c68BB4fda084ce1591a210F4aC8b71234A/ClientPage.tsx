@@ -2,139 +2,57 @@
 
 import Image from "next/image";
 import { useEnsAvatar } from "wagmi";
+import { Address } from "~~/components/scaffold-eth";
 
 export default function ClientPage() {
   const address = "0x4eD2b3c68BB4fda084ce1591a210F4aC8b71234A";
   const ensName = "timkot.eth";
+
   const { data: avatarUrl } = useEnsAvatar({ name: ensName, chainId: 1 });
 
   return (
-    <div
-      style={{
-        minHeight: "100vh",
-        backgroundColor: "#0f1419",
-        color: "#FFA500", // primary text now orange
-        fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif",
-      }}
-    >
-      <main
-        style={{
-          maxWidth: "900px",
-          margin: "0 auto",
-          padding: "3rem 1.5rem",
-          display: "grid",
-          gridTemplateColumns: "1fr 2fr",
-          gap: "3rem",
-          alignItems: "start",
-        }}
-      >
+    <div className="min-h-screen bg-base-300 text-base-content font-sans">
+      <main className="max-w-4xl mx-auto py-12 px-6 grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
         {/* Left Column - Profile Card */}
-        <div
-          style={{
-            backgroundColor: "#1a1f2e",
-            borderRadius: "16px",
-            padding: "1.5rem",
-            border: "1px solid #2a3441",
-          }}
-        >
+        <div className="bg-base-100 rounded-2xl p-6 border border-base-200 shadow-lg">
           {/* Avatar */}
-          <div style={{ textAlign: "center", marginBottom: "1.25rem" }}>
+          <div className="text-center mb-5">
             {avatarUrl ? (
               <Image
                 src={avatarUrl}
                 alt="ENS Avatar"
                 width={120}
                 height={120}
-                style={{
-                  borderRadius: "50%",
-                  border: "3px solid #FFA500",
-                }}
+                className="rounded-full border-4 border-primary mx-auto"
               />
             ) : (
-              <div
-                style={{
-                  width: "120px",
-                  height: "120px",
-                  borderRadius: "50%",
-                  backgroundColor: "#FFA500",
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "center",
-                  margin: "0 auto",
-                  fontSize: "3rem",
-                  fontWeight: "bold",
-                  color: "#0f1419",
-                }}
-              >
+              <div className="w-32 h-32 rounded-full bg-primary flex items-center justify-center mx-auto text-5xl font-bold text-primary-content">
                 T
               </div>
             )}
           </div>
 
           {/* Name & Title */}
-          <div style={{ textAlign: "center", marginBottom: "1.75rem" }}>
-            <h1
-              style={{
-                fontSize: "2rem",
-                fontWeight: 700,
-                margin: "0 0 0.5rem 0",
-                color: "#FFA500",
-              }}
-            >
-              Timkot
-            </h1>
-            <p style={{ color: "#8b949e", fontSize: "1rem", margin: 0 }}>
-              Batch #20 — Builder
-            </p>
+          <div className="text-center mb-7">
+            <h1 className="text-3xl font-bold mb-2 text-primary">Timkot</h1>
+            <p className="text-base-content/70 text-base">Batch #20 — Builder</p>
           </div>
 
           {/* Address */}
-          <div
-            style={{
-              backgroundColor: "#21262d",
-              padding: "0.5rem",
-              borderRadius: "8px",
-              marginBottom: "1.25rem",
-            }}
-          >
-            <div
-              style={{
-                display: "flex",
-                alignItems: "center",
-                gap: "0.5rem",
-                fontSize: "0.85rem",
-              }}
-            >
-              <span style={{ color: "#8b949e" }}>🔗</span>
-              <code
-                style={{
-                  color: "#58a6ff",
-                  fontSize: "0.78rem",
-                  wordBreak: "break-all",
-                }}
-              >
-                {address}
-              </code>
+          <div className="bg-base-200 p-2 rounded-lg mb-5">
+            <div className="flex items-center gap-2 text-sm">
+              <span className="text-base-content/70">🔗</span>
+              <Address address={address} />
             </div>
           </div>
 
           {/* Links */}
-          <div style={{ display: "flex", flexDirection: "column", gap: "0.5rem" }}>
+          <div className="flex flex-col gap-2">
             <a
               href={`https://arbiscan.io/address/${address}`}
               target="_blank"
               rel="noopener noreferrer"
-              style={{
-                display: "flex",
-                alignItems: "center",
-                gap: "0.5rem",
-                padding: "0.6rem 1rem",
-                backgroundColor: "#21262d",
-                borderRadius: "8px",
-                color: "#FFA500",
-                textDecoration: "none",
-                fontSize: "0.85rem",
-              }}
+              className="flex items-center gap-2 py-3 px-4 bg-base-200 hover:bg-base-300 rounded-lg text-base-content no-underline text-sm transition-colors"
             >
               🔍 View on Arbiscan
             </a>
@@ -142,17 +60,7 @@ export default function ClientPage() {
               href="https://github.com/timkot"
               target="_blank"
               rel="noopener noreferrer"
-              style={{
-                display: "flex",
-                alignItems: "center",
-                gap: "0.5rem",
-                padding: "0.6rem 1rem",
-                backgroundColor: "#21262d",
-                borderRadius: "8px",
-                color: "#FFA500",
-                textDecoration: "none",
-                fontSize: "0.85rem",
-              }}
+              className="flex items-center gap-2 py-3 px-4 bg-base-200 hover:bg-base-300 rounded-lg text-base-content no-underline text-sm transition-colors"
             >
               📱 GitHub
             </a>
@@ -160,17 +68,7 @@ export default function ClientPage() {
               href="https://twitter.com/timkot_eth"
               target="_blank"
               rel="noopener noreferrer"
-              style={{
-                display: "flex",
-                alignItems: "center",
-                gap: "0.5rem",
-                padding: "0.6rem 1rem",
-                backgroundColor: "#21262d",
-                borderRadius: "8px",
-                color: "#FFA500",
-                textDecoration: "none",
-                fontSize: "0.85rem",
-              }}
+              className="flex items-center gap-2 py-3 px-4 bg-base-200 hover:bg-base-300 rounded-lg text-base-content no-underline text-sm transition-colors"
             >
               🐦 X/Twitter
             </a>
@@ -180,61 +78,26 @@ export default function ClientPage() {
         {/* Right Column - Content */}
         <div>
           {/* About Me */}
-          <section style={{ marginBottom: "2.5rem" }}>
-            <h2
-              style={{
-                fontSize: "1.5rem",
-                fontWeight: 600,
-                marginBottom: "0.75rem",
-                color: "#FFA500",
-              }}
-            >
-              About Me
-            </h2>
-            <p
-              style={{
-                fontSize: "1.1rem",
-                lineHeight: 1.6,
-                color: "#e6edf3",
-                marginBottom: "1.25rem",
-              }}
-            >
-              Web3 Marketing & Community Lead transitioning into Web3 Development. Passionate
-              about building decentralized applications and growing Web3 communities.
+          <section className="mb-10">
+            <h2 className="text-2xl font-semibold mb-3 text-primary">About Me</h2>
+            <p className="text-lg leading-relaxed text-base-content mb-5">
+              Web3 Marketing & Community Lead transitioning into Web3 Development. Passionate about building
+              decentralized applications and growing Web3 communities.
             </p>
           </section>
 
           {/* Experience */}
-          <section style={{ marginBottom: "2.5rem" }}>
-            <h2
-              style={{
-                fontSize: "1.5rem",
-                fontWeight: 600,
-                marginBottom: "1rem",
-                color: "#FFA500",
-              }}
-            >
-              Experience
-            </h2>
-            <div style={{ display: "flex", flexDirection: "column", gap: "0.75rem" }}>
+          <section className="mb-10">
+            <h2 className="text-2xl font-semibold mb-4 text-primary">Experience</h2>
+            <div className="flex flex-col gap-3">
               {[
                 "Ex Community Lead @ Humandone",
                 "Ex Solana Collective CIS Representative",
                 "Ex Talent Protocol Product Manager",
                 "Ex Assisterr Head of Community",
               ].map((role, index) => (
-                <div
-                  key={index}
-                  style={{
-                    padding: "0.75rem",
-                    backgroundColor: "#1a1f2e",
-                    borderRadius: "8px",
-                    border: "1px solid #2a3441",
-                  }}
-                >
-                  <p style={{ margin: 0, color: "#e6edf3", fontSize: "0.95rem" }}>
-                    {role}
-                  </p>
+                <div key={index} className="p-3 bg-base-100 rounded-lg border border-base-200">
+                  <p className="text-base-content text-sm">{role}</p>
                 </div>
               ))}
             </div>
@@ -242,33 +105,12 @@ export default function ClientPage() {
 
           {/* Focus Areas */}
           <section>
-            <h2
-              style={{
-                fontSize: "1.5rem",
-                fontWeight: 600,
-                marginBottom: "0.75rem",
-                color: "#FFA500",
-              }}
-            >
-              Focus Areas
-            </h2>
-            <div style={{ display: "flex", flexWrap: "wrap", gap: "0.5rem" }}>
-              {[
-                "Web3 Marketing",
-                "Community Management",
-                "Smart Contracts",
-                "DApp Development",
-              ].map((skill, index) => (
+            <h2 className="text-2xl font-semibold mb-3 text-primary">Focus Areas</h2>
+            <div className="flex flex-wrap gap-2">
+              {["Web3 Marketing", "Community Management", "Smart Contracts", "DApp Development"].map((skill, index) => (
                 <span
                   key={index}
-                  style={{
-                    padding: "0.4rem 0.8rem",
-                    backgroundColor: "#FFA500",
-                    borderRadius: "20px",
-                    fontSize: "0.85rem",
-                    fontWeight: 500,
-                    color: "#0f1419",
-                  }}
+                  className="py-2 px-3 bg-primary rounded-full text-sm font-medium text-primary-content"
                 >
                   {skill}
                 </span>
