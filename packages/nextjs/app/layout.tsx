@@ -5,8 +5,9 @@ import "~~/styles/globals.css";
 import { getMetadata } from "~~/utils/scaffold-eth/getMetadata";
 
 export const metadata = getMetadata({
-  title: "Scaffold-ETH 2 App",
-  description: "Built with 🏗 Scaffold-ETH 2",
+  title: "Buidl Guidl Batch 20",
+  description:
+    "Build real Ethereum dApps through collaborative challenges using Scaffold-ETH 2, smart contracts & Github. Visit SpeedRunEthereum.com to join Batch 21 with a community of builders.",
 });
 
 const ScaffoldEthApp = ({ children }: { children: React.ReactNode }) => {
