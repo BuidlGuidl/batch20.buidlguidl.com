@@ -1,7 +1,6 @@
 "use client";
 
 import { Address } from "viem";
-import { arbitrum } from "viem/chains";
 import { Address as AddressComponent } from "~~/components/scaffold-eth";
 import { useScaffoldEventHistory } from "~~/hooks/scaffold-eth";
 
@@ -15,7 +14,6 @@ type CheckedInArgs = {
 
 const CONTRACT_NAME = "BatchRegistry";
 const EVENT_NAME = "CheckedIn";
-const CHAIN_ID = arbitrum.id; // 42161
 const FROM_BLOCK = 379755149n;
 
 export default function ClientBuilders({ existingSlugMap }: Props) {
@@ -26,9 +24,9 @@ export default function ClientBuilders({ existingSlugMap }: Props) {
   } = useScaffoldEventHistory({
     contractName: CONTRACT_NAME,
     eventName: EVENT_NAME,
-    chainId: CHAIN_ID,
-    watch: false,
+    watch: true,
     fromBlock: FROM_BLOCK,
+    blocksBatchSize: 500_000,
   });
 
   const builders = (() => {
@@ -50,10 +48,10 @@ export default function ClientBuilders({ existingSlugMap }: Props) {
           </div>
         </div>
 
-        {isLoading && <div className="text-center py-12 text-zinc-500 dark:text-zinc-400">Cargando eventos…</div>}
+        {isLoading && <div className="text-center py-12 text-zinc-500 dark:text-zinc-400">Loading events…</div>}
         {error && (
           <div className="text-center py-12 text-red-600 dark:text-red-400">
-            Error leyendo eventos: {String((error as any)?.message ?? error)}
+            Error reading events: {String((error as any)?.message ?? error)}
           </div>
         )}
 
@@ -98,7 +96,7 @@ export default function ClientBuilders({ existingSlugMap }: Props) {
                   return (
                     <div
                       key={addrLower}
-                      className="group bg-white dark:bg-zinc-900/30 border border-zinc-200 dark:border-zinc-800 rounded-2xl p-4 sm:p-6 hover:shadow-lg hover:shadow-zinc-200/50 dark:hover:shadow-zinc-900/20 transition-all duration-200 hover:border-zinc-300 dark:hover:border-zinc-700"
+                      className="bg-white dark:bg-zinc-900/30 border border-zinc-200 dark:border-zinc-800 rounded-2xl p-4 sm:p-6"
                     >
                       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
                         <div className="flex flex-col sm:flex-row sm:items-center gap-3 min-w-0 flex-1">
