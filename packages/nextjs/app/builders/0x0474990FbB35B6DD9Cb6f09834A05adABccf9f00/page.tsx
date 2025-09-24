@@ -2,55 +2,53 @@ import Image from "next/image";
 import type { Metadata, NextPage } from "next";
 import { Address } from "~~/components/scaffold-eth";
 
-// Importiere die Image-Komponente
-
 export const metadata: Metadata = {
   title: "Julian — Batch #20",
   description: "Builder page for Batch #20",
 };
 
+const ADDRESS = "0x0474990FbB35B6DD9Cb6f09834A05adABccf9f00";
+
+const socials = [
+  {
+    link: "https://x.com/julian_s10",
+    src: "/x.png",
+    alt: "Julians Twitter",
+  },
+  {
+    link: "https://github.com/JUlian-co",
+    src: "/github.png",
+    alt: "Julians GitHub",
+  },
+  {
+    link: "https://juliansinn.de",
+    src: "/globe.png",
+    alt: "Julians Website",
+  },
+];
+
+const projects = [
+  {
+    link: "https://mipotr.vercel.app",
+    src: "/piechart.png",
+    name: "MiPoTr",
+    desc: "Mini portfolio tracker. (A weekend project)",
+  },
+  {
+    link: "https://coinwizard.fun",
+    src: "/CoinWizard.png",
+    name: "CoinWizard",
+    desc: "Create the next viral memecoin on Solana, without coding.",
+  },
+  {
+    link: "https//brixpay.io",
+    src: "/BrixLogo.png",
+    name: "BrixPay",
+    desc: "User friendly recurring crypto payments.",
+  },
+];
+
 const JuliansPage: NextPage = () => {
-  const ADDRESS = "0x0474990FbB35B6DD9Cb6f09834A05adABccf9f00";
-
-  const socials = [
-    {
-      link: "https://x.com/julian_s10",
-      src: "/x.png",
-      alt: "Julians Twitter",
-    },
-    {
-      link: "https://github.com/JUlian-co",
-      src: "/github.png",
-      alt: "Julians GitHub",
-    },
-    {
-      link: "https://juliansinn.de",
-      src: "/globe.png",
-      alt: "Julians Website",
-    },
-  ];
-
-  const projects = [
-    {
-      link: "https://mipotr.vercel.app",
-      src: "/piechart.png",
-      name: "MiPoTr",
-      desc: "Mini portfolio tracker. (A weekend project)",
-    },
-    {
-      link: "https://coinwizard.fun",
-      src: "/CoinWizard.png",
-      name: "CoinWizard",
-      desc: "Create the next viral memecoin on Solana, without coding.",
-    },
-    {
-      link: "https//brixpay.io",
-      src: "/BrixLogo.png",
-      name: "BrixPay",
-      desc: "User friendly recurring crypto payments.",
-    },
-  ];
-
   return (
     <main className="bg-white dark:bg-black selection:bg-[#00ff00]/80 selection:text-black w-full h-screen flex justify-center items-start p-8 text-lg font-mono dark:text-[#00ff00] text-black">
       <div className=" w-full flex items-center justify-center">
