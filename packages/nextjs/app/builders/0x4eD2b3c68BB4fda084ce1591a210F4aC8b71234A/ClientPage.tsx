@@ -4,7 +4,7 @@ import Image from "next/image";
 import { useEnsAvatar } from "wagmi";
 import { Address } from "~~/components/scaffold-eth";
 
-export default function ClientPage() {
+export function ClientPage() {
   const address = "0x4eD2b3c68BB4fda084ce1591a210F4aC8b71234A";
   const ensName = "timkot.eth";
 
