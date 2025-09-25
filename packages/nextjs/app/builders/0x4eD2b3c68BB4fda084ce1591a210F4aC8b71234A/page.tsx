@@ -1,4 +1,4 @@
-import ClientPage from "./ClientPage";
+import { ClientPage } from "./ClientPage";
 import { NextPage } from "next";
 import { getMetadata } from "~~/utils/scaffold-eth/getMetadata";
 
