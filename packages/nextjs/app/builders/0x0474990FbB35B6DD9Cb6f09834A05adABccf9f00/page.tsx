@@ -50,7 +50,7 @@ const projects = [
 
 const JuliansPage: NextPage = () => {
   return (
-    <main className="bg-white dark:bg-black selection:bg-[#00ff00]/80 selection:text-black w-full h-screen flex justify-center items-start p-8 text-lg font-mono dark:text-[#00ff00] text-black">
+    <main className="bg-white dark:bg-black selection:bg-[#00ff00]/80 selection:text-black w-full min-h-screen flex justify-center items-start p-8 text-lg font-mono dark:text-[#00ff00] text-black">
       <div className=" w-full flex items-center justify-center">
         <div className="max-w-2xl w-full flex flex-col justify-center items-center ring-2 ring-black dark:ring-[#00ff00] p-8 bg-[#00ff00]/5 shadow-xl shadow-[#00ff00]/40">
           <Image
@@ -75,7 +75,7 @@ const JuliansPage: NextPage = () => {
           <div className="h-[1px] w-[90%] bg-black dark:bg-[#00ff00] my-8" />
 
           <h2 className="font-semibold mb-4">Projects:</h2>
-          <div className="flex gap-12">
+          <div className="grid grid-cols-3 max-md:grid-cols-2 max-sm:grid-cols-1 w-full gap-12">
             {projects.map(project => (
               <a
                 className="flex flex-col items-center cursor-pointer shadow-lg shadow-black/60 dark:shadow-[#00ff00]/60 border-[1px] border-black dark:border-[#00ff00] p-4 hover:-translate-y-1.5 hover:shadow-[#00ff00]/40 hover:shadow-xl transition"
