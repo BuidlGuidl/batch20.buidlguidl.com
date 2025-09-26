@@ -34,14 +34,15 @@ export function ClientPage() {
 
           {/* Name & Title */}
           <div className="text-center mb-7">
-            <h1 className="text-3xl font-bold mb-2 text-primary">Timkot</h1>
-            <p className="text-base-content/70 text-base">Batch #20 — Builder</p>
+            {/* ⬇️ orange in dark mode */}
+            <h1 className="text-3xl font-bold mb-2 text-primary dark:text-orange-400">Timkot</h1>
+            <p className="text-base-content/80 dark:text-orange-300 text-base">Batch #20 — Builder</p>
           </div>
 
           {/* Address */}
           <div className="bg-base-200 p-2 rounded-lg mb-5">
             <div className="flex items-center gap-2 text-sm">
-              <span className="text-base-content/70">🔗</span>
+              <span className="text-base-content/70 dark:text-orange-300">🔗</span>
               <Address address={address} />
             </div>
           </div>
@@ -52,7 +53,7 @@ export function ClientPage() {
               href={`https://arbiscan.io/address/${address}`}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-2 py-3 px-4 bg-base-200 hover:bg-base-300 rounded-lg text-base-content no-underline text-sm transition-colors"
+              className="flex items-center gap-2 py-3 px-4 bg-base-200 hover:bg-base-300 rounded-lg !text-base-content dark:!text-orange-300 no-underline text-sm transition-colors"
             >
               🔍 View on Arbiscan
             </a>
@@ -60,7 +61,7 @@ export function ClientPage() {
               href="https://github.com/timkot"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-2 py-3 px-4 bg-base-200 hover:bg-base-300 rounded-lg text-base-content no-underline text-sm transition-colors"
+              className="flex items-center gap-2 py-3 px-4 bg-base-200 hover:bg-base-300 rounded-lg !text-base-content dark:!text-orange-300 no-underline text-sm transition-colors"
             >
               📱 GitHub
             </a>
@@ -68,7 +69,7 @@ export function ClientPage() {
               href="https://twitter.com/timkot_eth"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-2 py-3 px-4 bg-base-200 hover:bg-base-300 rounded-lg text-base-content no-underline text-sm transition-colors"
+              className="flex items-center gap-2 py-3 px-4 bg-base-200 hover:bg-base-300 rounded-lg !text-base-content dark:!text-orange-300 no-underline text-sm transition-colors"
             >
               🐦 X/Twitter
             </a>
@@ -79,8 +80,8 @@ export function ClientPage() {
         <div>
           {/* About Me */}
           <section className="mb-10">
-            <h2 className="text-2xl font-semibold mb-3 text-primary">About Me</h2>
-            <p className="text-lg leading-relaxed text-base-content mb-5">
+            <h2 className="text-2xl font-semibold mb-3 text-primary dark:text-orange-400">About Me</h2>
+            <p className="text-lg leading-relaxed text-base-content dark:text-orange-300 mb-5">
               Web3 Marketing & Community Lead transitioning into Web3 Development. Passionate about building
               decentralized applications and growing Web3 communities.
             </p>
@@ -88,7 +89,7 @@ export function ClientPage() {
 
           {/* Experience */}
           <section className="mb-10">
-            <h2 className="text-2xl font-semibold mb-4 text-primary">Experience</h2>
+            <h2 className="text-2xl font-semibold mb-4 text-primary dark:text-orange-400">Experience</h2>
             <div className="flex flex-col gap-3">
               {[
                 "Ex Community Lead @ Humandone",
@@ -97,7 +98,7 @@ export function ClientPage() {
                 "Ex Assisterr Head of Community",
               ].map((role, index) => (
                 <div key={index} className="p-3 bg-base-100 rounded-lg border border-base-200">
-                  <p className="text-base-content text-sm">{role}</p>
+                  <p className="text-base-content dark:text-orange-300 text-sm">{role}</p>
                 </div>
               ))}
             </div>
@@ -105,12 +106,14 @@ export function ClientPage() {
 
           {/* Focus Areas */}
           <section>
-            <h2 className="text-2xl font-semibold mb-3 text-primary">Focus Areas</h2>
+            {/* ⬇️ orange heading in dark mode */}
+            <h2 className="text-2xl font-semibold mb-3 text-primary dark:text-orange-400">Focus Areas</h2>
             <div className="flex flex-wrap gap-2">
               {["Web3 Marketing", "Community Management", "Smart Contracts", "DApp Development"].map((skill, index) => (
                 <span
                   key={index}
-                  className="py-2 px-3 bg-primary rounded-full text-sm font-medium text-primary-content"
+                  /* ⬇️ match Experience card bg + orange text in dark mode */
+                  className="py-2 px-3 rounded-full text-sm font-medium bg-base-100 border border-base-200 text-base-content dark:text-orange-300"
                 >
                   {skill}
                 </span>
