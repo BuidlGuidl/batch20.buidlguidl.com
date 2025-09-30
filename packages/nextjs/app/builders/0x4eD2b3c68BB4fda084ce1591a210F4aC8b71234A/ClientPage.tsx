@@ -4,11 +4,12 @@ import Image from "next/image";
 import { useEnsAvatar } from "wagmi";
 import { Address } from "~~/components/scaffold-eth";
 
-export function ClientPage() {
-  const address = "0x4eD2b3c68BB4fda084ce1591a210F4aC8b71234A";
-  const ensName = "timkot.eth";
+const ADDRESS = "0x4eD2b3c68BB4fda084ce1591a210F4aC8b71234A" as const;
+const ENS_NAME = "timkot.eth" as const;
 
-  const { data: avatarUrl } = useEnsAvatar({ name: ensName, chainId: 1 });
+export function ClientPage() {
+
+  const { data: avatarUrl } = useEnsAvatar({ name: ENS_NAME, chainId: 1 });
 
   return (
     <div className="min-h-screen bg-base-300 text-base-content font-sans">

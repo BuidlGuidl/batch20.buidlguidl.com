@@ -7,8 +7,8 @@ export const metadata = getMetadata({
   description: "Timkot's Dev Journey",
 });
 
-const Page: NextPage = () => {
+const Timkot: NextPage = () => {
   return <ClientPage />;
 };
 
-export default Page;
+export default Timkot;
