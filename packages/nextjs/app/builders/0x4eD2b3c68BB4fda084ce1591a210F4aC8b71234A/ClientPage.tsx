@@ -8,7 +8,6 @@ const ADDRESS = "0x4eD2b3c68BB4fda084ce1591a210F4aC8b71234A" as const;
 const ENS_NAME = "timkot.eth" as const;
 
 export function ClientPage() {
-
   const { data: avatarUrl } = useEnsAvatar({ name: ENS_NAME, chainId: 1 });
 
   return (
@@ -44,14 +43,14 @@ export function ClientPage() {
           <div className="bg-base-200 p-2 rounded-lg mb-5">
             <div className="flex items-center gap-2 text-sm">
               <span className="text-base-content/70 dark:text-orange-300">🔗</span>
-              <Address address={address} />
+              <Address address={ADDRESS} />
             </div>
           </div>
 
           {/* Links */}
           <div className="flex flex-col gap-2">
             <a
-              href={`https://arbiscan.io/address/${address}`}
+              href={`https://arbiscan.io/address/${ADDRESS}`}
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center gap-2 py-3 px-4 bg-base-200 hover:bg-base-300 rounded-lg !text-base-content dark:!text-orange-300 no-underline text-sm transition-colors"
