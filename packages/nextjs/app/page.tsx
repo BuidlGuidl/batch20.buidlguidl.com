@@ -10,10 +10,13 @@ const Home: NextPage = () => {
       <div className="flex items-center flex-col grow pt-10">
         <div className="px-5">
           <h1 className="text-center">
-            <span className="block text-2xl mb-2">Welcome to</span>
-            <span className="block text-4xl font-bold">Batch 20! 🎉</span>
+            <span className="block text-3xl mb-2 font-bold">Batch #20</span>
+            <span className="block text-2xl text-base-content/70">Graduation projects — builders showcase 🎉</span>
           </h1>
-          <p className="text-center text-lg">Get started by taking a look at your batch GitHub repository.</p>
+          <p className="text-center text-lg">
+            A curated collection of projects built by Batch 20 builders. Explore contracts, transactions, and demos
+            below.
+          </p>
           <p className="text-lg flex gap-2 justify-center">
             <span className="font-bold">Checked in builders count:</span>
             <span>To Be Implemented</span>
