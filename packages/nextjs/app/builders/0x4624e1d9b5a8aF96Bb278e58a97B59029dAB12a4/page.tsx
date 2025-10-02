@@ -73,36 +73,21 @@ const SOCIALS: Array<{
 
 const CERTIFICATIONS = [
   {
-    name: "Ethereum Developer Pack",
+    name: "ETH KIPU",
     org: "Talento Tech & ETH KIPU",
     date: "Aug 2025",
     highlight: "Top 10 student by final grade",
-    category: "Education",
   },
   {
     name: "Fundamentals of Zero-Knowledge Proofs",
     org: "Cyfrin",
     date: "Jul 2025",
     isZK: true,
-    category: "Specialization",
   },
   {
-    name: "Chainlink Fundamentals",
-    org: "Cyfrin",
-    date: "Jun 2025–Jun 2026",
-    category: "Oracle",
-  },
-  {
-    name: "Web3 Wallet Security",
+    name: "Smart Contract Security",
     org: "Cyfrin",
     date: "Jun 2025",
-    category: "Security",
-  },
-  {
-    name: "Solidity Smart Contract Dev",
-    org: "Cyfrin Updraft",
-    date: "Jan 2025",
-    category: "Development",
   },
 ];
 
@@ -122,7 +107,7 @@ const LuchessiPage: NextPage = () => {
             />
             <div className="flex-1">
               <h1 className="text-3xl md:text-4xl font-bold tracking-tight">
-                Luchessi Franco
+                Einarmig
                 <span className="ml-3 text-lg align-middle font-medium text-zinc-500 dark:text-zinc-400">
                   Batch #20
                 </span>
@@ -144,29 +129,37 @@ const LuchessiPage: NextPage = () => {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           <aside className="md:col-span-1 space-y-6">
             <div className="rounded-2xl border border-zinc-200 dark:border-zinc-800 bg-white/70 dark:bg-zinc-900/60 backdrop-blur p-5 shadow-sm">
-              <h2 className="text-sm uppercase tracking-wider text-zinc-500 dark:text-zinc-400">Languages</h2>
-              <ul className="mt-3 space-y-2 text-sm">
-                <li className="flex items-center justify-between">
-                  <span className="text-zinc-600 dark:text-zinc-400">🇪🇸 Spanish</span>
-                  <span className="font-medium">Native</span>
-                </li>
-                <li className="flex items-center justify-between">
-                  <span className="text-zinc-600 dark:text-zinc-400">🇬🇧 English</span>
-                  <span className="font-medium">B2</span>
-                </li>
-              </ul>
+              <h2 className="text-sm uppercase tracking-wider text-zinc-500 dark:text-zinc-400">Contact</h2>
+              <div className="mt-3 space-y-2">
+                {SOCIALS.map(s => (
+                  <Link
+                    key={s.label}
+                    href={s.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    prefetch={false}
+                    className="group flex items-center gap-3 rounded-lg border border-zinc-200 dark:border-zinc-800 bg-zinc-50/70 dark:bg-zinc-900/40 hover:border-zinc-300 dark:hover:border-zinc-700 px-3 py-2 transition"
+                  >
+                    {s.icon}
+                    <div className="flex flex-col min-w-0">
+                      <span className="text-sm font-medium">{s.label}</span>
+                      <span className="text-xs text-zinc-500 truncate">{s.handle}</span>
+                    </div>
+                  </Link>
+                ))}
+              </div>
             </div>
 
             <div className="rounded-2xl border border-zinc-200 dark:border-zinc-800 bg-white/70 dark:bg-zinc-900/60 backdrop-blur p-5 shadow-sm">
-              <h2 className="text-sm uppercase tracking-wider text-zinc-500 dark:text-zinc-400">Specialization</h2>
+              <h2 className="text-sm uppercase tracking-wider text-zinc-500 dark:text-zinc-400">Languages</h2>
               <ul className="mt-3 space-y-2 text-sm">
                 <li className="flex items-center justify-between">
-                  <span className="text-zinc-600 dark:text-zinc-400">Focus</span>
-                  <span className="font-medium">Privacy • ZK Proofs</span>
+                  <span className="text-zinc-600 dark:text-zinc-400">Spanish</span>
+                  <span className="font-medium">Native</span>
                 </li>
                 <li className="flex items-center justify-between">
-                  <span className="text-zinc-600 dark:text-zinc-400">Stack</span>
-                  <span className="font-medium">Solidity • Cairo</span>
+                  <span className="text-zinc-600 dark:text-zinc-400">English</span>
+                  <span className="font-medium">B2</span>
                 </li>
               </ul>
             </div>
@@ -186,19 +179,14 @@ const LuchessiPage: NextPage = () => {
             </div>
           </aside>
 
-          <section className="md:col-span-2 space-y-6">
-            <div className="rounded-2xl border border-zinc-200 dark:border-zinc-800 bg-white/70 dark:bg-zinc-900/60 backdrop-blur p-6 shadow-sm">
-              <div className="flex items-center justify-between">
-                <h2 className="text-lg font-semibold">Certifications</h2>
-                <span className="text-xs px-2 py-1 rounded-full border border-emerald-300/40 bg-emerald-50 dark:bg-emerald-950/20 text-emerald-700 dark:text-emerald-300">
-                  5 Completed
-                </span>
-              </div>
-              <div className="mt-4 grid grid-cols-1 gap-4">
+          <section className="md:col-span-2">
+            <div className="rounded-2xl border border-zinc-200 dark:border-zinc-800 bg-white/70 dark:bg-zinc-900/60 backdrop-blur p-6 shadow-sm h-full">
+              <h2 className="text-lg font-semibold">Certifications</h2>
+              <div className="mt-4 grid grid-cols-1 gap-5">
                 {CERTIFICATIONS.map((cert, idx) => (
                   <article
                     key={idx}
-                    className={`rounded-xl border border-zinc-200 dark:border-zinc-800 p-4 ${cert.isZK ? "ring-2 ring-purple-200 dark:ring-purple-800" : ""}`}
+                    className={`rounded-xl border border-zinc-200 dark:border-zinc-800 p-5 ${cert.isZK ? "ring-2 ring-purple-200 dark:ring-purple-800" : ""}`}
                   >
                     <div className="flex items-start justify-between">
                       <div className="flex-1">
@@ -217,30 +205,9 @@ const LuchessiPage: NextPage = () => {
                       </div>
                       <div className="text-right">
                         <div className="text-xs text-zinc-500 dark:text-zinc-400">{cert.date}</div>
-                        <div className="text-xs text-zinc-500 dark:text-zinc-400 mt-1">{cert.category}</div>
                       </div>
                     </div>
                   </article>
-                ))}
-              </div>
-            </div>
-
-            <div className="rounded-2xl border border-zinc-200 dark:border-zinc-800 bg-white/70 dark:bg-zinc-900/60 backdrop-blur p-6 shadow-sm">
-              <h2 className="text-lg font-semibold">Contact</h2>
-              <div className="mt-3 grid grid-cols-1 sm:grid-cols-2 gap-3">
-                {SOCIALS.map(s => (
-                  <Link
-                    key={s.label}
-                    href={s.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    prefetch={false}
-                    className="group flex items-center gap-3 rounded-lg border border-zinc-200 dark:border-zinc-800 bg-zinc-50/70 dark:bg-zinc-900/40 hover:border-zinc-300 dark:hover:border-zinc-700 px-4 py-3 transition"
-                  >
-                    {s.icon}
-                    <span className="font-medium">{s.label}</span>
-                    <span className="ml-auto text-xs text-zinc-500 truncate">{s.handle}</span>
-                  </Link>
                 ))}
               </div>
             </div>
