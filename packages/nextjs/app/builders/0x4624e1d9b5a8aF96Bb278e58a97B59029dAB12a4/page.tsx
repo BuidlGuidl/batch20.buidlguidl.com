@@ -91,7 +91,7 @@ const CERTIFICATIONS = [
   },
 ];
 
-const LuchessiPage: NextPage = () => {
+const EinamigPage: NextPage = () => {
   return (
     <main className="min-h-screen bg-gradient-to-b from-white to-zinc-50 dark:from-black dark:to-zinc-950 text-zinc-900 dark:text-zinc-100">
       <section className="relative overflow-hidden">
@@ -218,4 +218,4 @@ const LuchessiPage: NextPage = () => {
   );
 };
 
-export default LuchessiPage;
+export default EinamigPage;
