@@ -34,14 +34,14 @@ const TwitterIcon = () => (
   </svg>
 );
 
-const MailIcon = () => (
+const TelegramIcon = () => (
   <svg
     className="w-5 h-5 text-zinc-700 dark:text-zinc-300 group-hover:text-zinc-900 dark:group-hover:text-zinc-100"
     fill="currentColor"
     viewBox="0 0 24 24"
     aria-hidden="true"
   >
-    <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z" />
+    <path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z" />
   </svg>
 );
 
@@ -64,10 +64,10 @@ const SOCIALS: Array<{
     icon: <TwitterIcon />,
   },
   {
-    href: "mailto:0xeinarmig@gmail.com",
-    label: "Email",
-    handle: "0xeinarmig@gmail.com",
-    icon: <MailIcon />,
+    href: "https://t.me/Einarmig",
+    label: "Telegram",
+    handle: "Einarmig",
+    icon: <TelegramIcon />,
   },
 ];
 
@@ -77,6 +77,7 @@ const CERTIFICATIONS = [
     org: "Talento Tech & ETH KIPU",
     date: "Aug 2025",
     highlight: "Top 10 student by final grade",
+    color: "cyan",
   },
   {
     name: "Fundamentals of Zero-Knowledge Proofs",
@@ -88,132 +89,224 @@ const CERTIFICATIONS = [
     name: "Smart Contract Security",
     org: "Cyfrin",
     date: "Jun 2025",
+    color: "green",
   },
 ];
 
 const EinamigPage: NextPage = () => {
   return (
     <main className="min-h-screen bg-gradient-to-b from-white to-zinc-50 dark:from-black dark:to-zinc-950 text-zinc-900 dark:text-zinc-100">
-      <section className="relative overflow-hidden">
-        <div className="absolute inset-0 bg-[radial-gradient(80%_60%_at_50%_-10%,rgba(139,92,246,0.25),transparent)] dark:bg-[radial-gradient(80%_60%_at_50%_-10%,rgba(139,92,246,0.15),transparent)]" />
-        <div className="mx-auto max-w-5xl px-6 pt-12 pb-24 relative">
-          <div className="flex flex-col md:flex-row md:items-end gap-6">
-            <Image
-              src="https://avatars.githubusercontent.com/u/90649616?v=4"
-              alt="avatar"
-              width={140}
-              height={140}
-              className="w-28 h-28 md:w-36 md:h-36 rounded-2xl ring-1 ring-zinc-300/60 dark:ring-zinc-700/60 shadow-lg"
-            />
-            <div className="flex-1">
-              <h1 className="text-3xl md:text-4xl font-bold tracking-tight">
-                Einarmig
-                <span className="ml-3 text-lg align-middle font-medium text-zinc-500 dark:text-zinc-400">
-                  Batch #20
-                </span>
-              </h1>
-              <div className="mt-2">
-                <Address address={ADDRESS} />
+      {/* Animated Background Pattern */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        <div className="absolute top-20 left-1/4 w-72 h-72 bg-purple-300/20 dark:bg-purple-600/10 rounded-full blur-3xl animate-pulse" />
+        <div className="absolute bottom-32 right-1/3 w-96 h-96 bg-violet-300/20 dark:bg-violet-600/10 rounded-full blur-3xl animate-pulse delay-1000" />
+      </div>
+
+      <div className="mx-auto max-w-6xl px-6 py-16 relative">
+        {/* Header Section - 3 columns layout */}
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-8">
+          {/* Left: Description */}
+          <div className="rounded-2xl border-2 border-zinc-200 dark:border-zinc-800 bg-white/80 dark:bg-zinc-900/80 backdrop-blur p-6 shadow-lg flex flex-col justify-center items-center text-center">
+            <h1 className="text-3xl font-bold tracking-tight bg-gradient-to-r from-purple-600 to-violet-600 bg-clip-text text-transparent mb-4">
+              Einarmig
+            </h1>
+            <p className="text-base text-zinc-700 dark:text-zinc-300 leading-relaxed">
+              Junior Solidity developer passionate about Zero‑Knowledge Proofs and privacy‑preserving technologies.
+              Building secure smart contracts with modern Web3 stack.
+            </p>
+          </div>
+
+          {/* Center: Avatar & Address */}
+          <div className="rounded-2xl border-2 border-zinc-200 dark:border-zinc-800 bg-white/80 dark:bg-zinc-900/80 backdrop-blur p-6 shadow-lg flex flex-col items-center justify-center">
+            <div className="relative group mb-4">
+              <div className="absolute -inset-1 bg-gradient-to-r from-purple-600 to-violet-600 rounded-3xl blur opacity-25 group-hover:opacity-40 transition duration-300" />
+              <Image
+                src="https://avatars.githubusercontent.com/u/90649616?v=4"
+                alt="avatar"
+                width={140}
+                height={140}
+                className="relative w-32 h-32 rounded-2xl object-cover border-4 border-white dark:border-zinc-800"
+              />
+              <div className="absolute -bottom-2 -right-2 bg-purple-600 text-white text-xs font-bold px-2.5 py-1 rounded-full shadow-lg">
+                Batch #20
               </div>
-              <p className="mt-3 max-w-2xl text-zinc-700 dark:text-zinc-300">
-                Junior Solidity developer passionate about Zero‑Knowledge Proofs and privacy‑preserving technologies.
-                <br />
-                Building secure smart contracts with modern Web3 stack.
-              </p>
+            </div>
+            <div className="w-full mb-4 flex justify-center">
+              <Address address={ADDRESS} />
+            </div>
+            <div className="flex items-center justify-center gap-3">
+              {SOCIALS.map(s => (
+                <Link
+                  key={s.label}
+                  href={s.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  prefetch={false}
+                  className="group w-10 h-10 rounded-lg bg-gradient-to-br from-purple-100 to-violet-100 dark:from-purple-900/50 dark:to-violet-900/50 border border-purple-200 dark:border-purple-700 flex items-center justify-center hover:scale-110 hover:border-purple-400 dark:hover:border-purple-500 transition-all"
+                  aria-label={s.label}
+                >
+                  {s.icon}
+                </Link>
+              ))}
+            </div>
+          </div>
+
+          {/* Right: Tech Stack & Languages */}
+          <div className="rounded-2xl border-2 border-zinc-200 dark:border-zinc-800 bg-white/80 dark:bg-zinc-900/80 backdrop-blur p-6 shadow-lg flex flex-col justify-center">
+            <div className="flex items-center gap-2 mb-4">
+              <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-purple-500 to-violet-600 flex items-center justify-center">
+                <span className="text-white text-lg">⚡</span>
+              </div>
+              <h2 className="text-lg font-bold">Tech Stack</h2>
+            </div>
+            <div className="flex flex-wrap gap-2 mb-6">
+              {TECH_STACK.map(item => (
+                <span
+                  key={item}
+                  className="px-3 py-1.5 rounded-lg bg-gradient-to-r from-purple-50 to-violet-50 dark:from-purple-900/30 dark:to-violet-900/30 border border-purple-200 dark:border-purple-700 text-sm font-medium text-purple-700 dark:text-purple-300 hover:scale-105 transition-transform"
+                >
+                  {item}
+                </span>
+              ))}
+            </div>
+            <div className="pt-6 border-t border-zinc-200 dark:border-zinc-700">
+              <h3 className="text-sm font-semibold text-zinc-500 dark:text-zinc-400 uppercase tracking-wider mb-3">
+                Languages
+              </h3>
+              <div className="space-y-2">
+                <div className="flex items-center justify-between">
+                  <span className="text-sm text-zinc-600 dark:text-zinc-400">Spanish</span>
+                  <span className="px-2 py-0.5 bg-purple-100 dark:bg-purple-900/40 text-purple-700 dark:text-purple-300 rounded text-xs font-semibold">
+                    Native
+                  </span>
+                </div>
+                <div className="flex items-center justify-between">
+                  <span className="text-sm text-zinc-600 dark:text-zinc-400">English</span>
+                  <span className="px-2 py-0.5 bg-violet-100 dark:bg-violet-900/40 text-violet-700 dark:text-violet-300 rounded text-xs font-semibold">
+                    B2
+                  </span>
+                </div>
+              </div>
             </div>
           </div>
         </div>
-      </section>
 
-      <section className="mx-auto max-w-5xl px-6 -mt-16 pb-16">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          <aside className="md:col-span-1 space-y-6">
-            <div className="rounded-2xl border border-zinc-200 dark:border-zinc-800 bg-white/70 dark:bg-zinc-900/60 backdrop-blur p-5 shadow-sm">
-              <h2 className="text-sm uppercase tracking-wider text-zinc-500 dark:text-zinc-400">Contact</h2>
-              <div className="mt-3 space-y-2">
-                {SOCIALS.map(s => (
-                  <Link
-                    key={s.label}
-                    href={s.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    prefetch={false}
-                    className="group flex items-center gap-3 rounded-lg border border-zinc-200 dark:border-zinc-800 bg-zinc-50/70 dark:bg-zinc-900/40 hover:border-zinc-300 dark:hover:border-zinc-700 px-3 py-2 transition"
-                  >
-                    {s.icon}
-                    <div className="flex flex-col min-w-0">
-                      <span className="text-sm font-medium">{s.label}</span>
-                      <span className="text-xs text-zinc-500 truncate">{s.handle}</span>
-                    </div>
-                  </Link>
-                ))}
+        {/* Bottom Section - 2 columns layout */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+          {/* Left: Certifications */}
+          <div className="rounded-2xl border-2 border-zinc-200 dark:border-zinc-800 bg-white/80 dark:bg-zinc-900/80 backdrop-blur p-6 shadow-lg">
+            <div className="flex items-center gap-2 mb-6">
+              <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-amber-500 to-orange-600 flex items-center justify-center">
+                <span className="text-white text-lg">🏆</span>
               </div>
+              <h2 className="text-lg font-bold">Certifications</h2>
             </div>
+            <div className="space-y-4">
+              {CERTIFICATIONS.map((cert, idx) => {
+                const getColorClasses = () => {
+                  if (cert.isZK) {
+                    return "border-purple-300 dark:border-purple-700 bg-gradient-to-br from-purple-50 to-violet-50 dark:from-purple-900/20 dark:to-violet-900/20";
+                  }
+                  if (cert.color === "cyan") {
+                    return "border-cyan-300 dark:border-cyan-700 bg-gradient-to-br from-cyan-50 to-sky-50 dark:from-cyan-900/20 dark:to-sky-900/20";
+                  }
+                  if (cert.color === "green") {
+                    return "border-green-300 dark:border-green-700 bg-gradient-to-br from-green-50 to-emerald-50 dark:from-green-900/20 dark:to-emerald-900/20";
+                  }
+                  return "border-zinc-200 dark:border-zinc-800 bg-zinc-50 dark:bg-zinc-800/50";
+                };
 
-            <div className="rounded-2xl border border-zinc-200 dark:border-zinc-800 bg-white/70 dark:bg-zinc-900/60 backdrop-blur p-5 shadow-sm">
-              <h2 className="text-sm uppercase tracking-wider text-zinc-500 dark:text-zinc-400">Languages</h2>
-              <ul className="mt-3 space-y-2 text-sm">
-                <li className="flex items-center justify-between">
-                  <span className="text-zinc-600 dark:text-zinc-400">Spanish</span>
-                  <span className="font-medium">Native</span>
-                </li>
-                <li className="flex items-center justify-between">
-                  <span className="text-zinc-600 dark:text-zinc-400">English</span>
-                  <span className="font-medium">B2</span>
-                </li>
-              </ul>
-            </div>
-
-            <div className="rounded-2xl border border-zinc-200 dark:border-zinc-800 bg-white/70 dark:bg-zinc-900/60 backdrop-blur p-5 shadow-sm">
-              <h2 className="text-sm uppercase tracking-wider text-zinc-500 dark:text-zinc-400">Tech. Stack</h2>
-              <div className="mt-3 flex flex-wrap gap-2">
-                {TECH_STACK.map(item => (
-                  <span
-                    key={item}
-                    className="text-xs px-2 py-1 rounded-md bg-zinc-100 dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-700"
-                  >
-                    {item}
-                  </span>
-                ))}
-              </div>
-            </div>
-          </aside>
-
-          <section className="md:col-span-2">
-            <div className="rounded-2xl border border-zinc-200 dark:border-zinc-800 bg-white/70 dark:bg-zinc-900/60 backdrop-blur p-6 shadow-sm h-full">
-              <h2 className="text-lg font-semibold">Certifications</h2>
-              <div className="mt-4 grid grid-cols-1 gap-5">
-                {CERTIFICATIONS.map((cert, idx) => (
+                return (
                   <article
                     key={idx}
-                    className={`rounded-xl border border-zinc-200 dark:border-zinc-800 p-5 ${cert.isZK ? "ring-2 ring-purple-200 dark:ring-purple-800" : ""}`}
+                    className={`group rounded-xl border-2 p-4 transition-all hover:scale-[1.02] ${getColorClasses()}`}
                   >
-                    <div className="flex items-start justify-between">
+                    <div className="flex items-start justify-between gap-3">
                       <div className="flex-1">
-                        <h3 className="font-medium">{cert.name}</h3>
-                        <p className="mt-1 text-sm text-zinc-600 dark:text-zinc-400">{cert.org}</p>
+                        <h3 className="font-bold text-sm">{cert.name}</h3>
+                        <p className="mt-1 text-xs text-zinc-600 dark:text-zinc-400">{cert.org}</p>
                         {cert.highlight && (
-                          <p className="mt-1 text-xs text-amber-600 dark:text-amber-400 font-medium">
-                            🏆 {cert.highlight}
-                          </p>
+                          <div className="mt-2 inline-flex items-center gap-1 px-2 py-0.5 rounded-lg bg-amber-100 dark:bg-amber-900/30 border border-amber-300 dark:border-amber-700">
+                            <span className="text-sm">🏆</span>
+                            <span className="text-xs font-semibold text-amber-700 dark:text-amber-400">
+                              {cert.highlight}
+                            </span>
+                          </div>
                         )}
                         {cert.isZK && (
-                          <span className="inline-block mt-2 text-xs px-2 py-1 rounded-full bg-purple-100 dark:bg-purple-900/30 text-purple-700 dark:text-purple-300 border border-purple-200 dark:border-purple-700">
-                            ZK Specialization
-                          </span>
+                          <div className="mt-2 inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-purple-600 text-white text-xs font-bold shadow-lg">
+                            <span>✨</span>
+                            <span>ZK Specialization</span>
+                          </div>
                         )}
                       </div>
-                      <div className="text-right">
-                        <div className="text-xs text-zinc-500 dark:text-zinc-400">{cert.date}</div>
+                      <div className="text-right shrink-0">
+                        <div className="px-2 py-1 rounded-lg bg-zinc-200 dark:bg-zinc-700 text-xs font-semibold">
+                          {cert.date}
+                        </div>
                       </div>
                     </div>
                   </article>
-                ))}
+                );
+              })}
+            </div>
+          </div>
+
+          {/* Right: Current Project */}
+          <div className="rounded-2xl border-2 border-purple-300 dark:border-purple-700 bg-gradient-to-br from-purple-50 to-violet-50 dark:from-purple-900/20 dark:to-violet-900/20 backdrop-blur p-6 shadow-lg">
+            <div className="flex items-center gap-2 mb-4">
+              <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-purple-600 to-violet-600 flex items-center justify-center">
+                <span className="text-white text-lg">🚀</span>
+              </div>
+              <h2 className="text-lg font-bold">Current Project</h2>
+              <span className="ml-auto px-2 py-1 bg-green-100 dark:bg-green-900/40 text-green-700 dark:text-green-300 rounded-full text-xs font-bold">
+                In Progress
+              </span>
+            </div>
+
+            <div className="space-y-4">
+              <div>
+                <h3 className="text-xl font-bold text-purple-700 dark:text-purple-300 mb-2">ZK Anonymous Surveys</h3>
+                <p className="text-sm text-zinc-700 dark:text-zinc-300 leading-relaxed">
+                  Building a privacy-preserving survey platform using Zero-Knowledge proofs. The MVP leverages{" "}
+                  <span className="font-semibold text-purple-600 dark:text-purple-400">Noir</span> for ZK circuit
+                  development and <span className="font-semibold text-purple-600 dark:text-purple-400">Garaga</span> to
+                  verify proofs on Starknet, ensuring complete anonymity for respondents.
+                </p>
+              </div>
+
+              <div className="pt-4 border-t border-purple-200 dark:border-purple-800">
+                <h4 className="text-xs font-semibold text-purple-600 dark:text-purple-400 uppercase tracking-wider mb-2">
+                  Tech Stack
+                </h4>
+                <div className="flex flex-wrap gap-2">
+                  {["Noir", "Garaga", "Starknet", "Cairo", "TypeScript"].map(tech => (
+                    <span
+                      key={tech}
+                      className="px-2 py-1 rounded-md bg-purple-200/50 dark:bg-purple-800/30 border border-purple-300 dark:border-purple-700 text-xs font-medium text-purple-700 dark:text-purple-300"
+                    >
+                      {tech}
+                    </span>
+                  ))}
+                </div>
+              </div>
+
+              <div className="pt-4 border-t border-purple-200 dark:border-purple-800">
+                <h4 className="text-xs font-semibold text-purple-600 dark:text-purple-400 uppercase tracking-wider mb-2">
+                  Event
+                </h4>
+                <div className="flex items-center gap-2">
+                  <span className="text-2xl">🎯</span>
+                  <div>
+                    <div className="font-bold text-sm">Starknet Re:Solve Hackathon</div>
+                    <div className="text-xs text-zinc-600 dark:text-zinc-400">Building the future of privacy</div>
+                  </div>
+                </div>
               </div>
             </div>
-          </section>
+          </div>
         </div>
-      </section>
+      </div>
     </main>
   );
 };
