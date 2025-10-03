@@ -8,7 +8,7 @@ const titleTemplate = "%s | Scaffold-ETH 2";
 export const getMetadata = ({
   title,
   description,
-  imageRelativePath = "/favicon.svg",
+  imageRelativePath = "/thumbnail.svg",
 }: {
   title: string;
   description: string;
