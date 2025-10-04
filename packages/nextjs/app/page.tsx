@@ -51,7 +51,7 @@ const Home: NextPage = () => {
           </a>
         </p>
 
-        <p className="text-lg leading-0 font-semibold mb-6">
+        <p className="text-lg leading-0 font-semibold">
           Unique checked in builders:{" "}
           <span className="dark:text-[#2FD5FF] text-[#00c2f3]" style={{ textShadow: "0px 2px 8px #2FD5FF" }}>
             {checkedInCounter}
@@ -59,7 +59,7 @@ const Home: NextPage = () => {
         </p>
       </div>
 
-      <div className="grid grid-cols-3 gap-16 w-full max-w-6xl mt-[15% max-md:grid-cols-1">
+      <div className="grid grid-cols-3 gap-16 w-full max-w-6xl mt-6 max-md:grid-cols-1">
         {cards.map((card, index) => (
           <a
             href={card.href}
