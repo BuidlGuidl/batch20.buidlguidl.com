@@ -51,7 +51,7 @@ const Home: NextPage = () => {
           </a>
         </p>
 
-        <p className="text-lg leading-0 font-semibold">
+        <p className="text-lg leading-0 font-semibold mb-6">
           Unique checked in builders:{" "}
           <span className="dark:text-[#2FD5FF] text-[#00c2f3]" style={{ textShadow: "0px 2px 8px #2FD5FF" }}>
             {checkedInCounter}
