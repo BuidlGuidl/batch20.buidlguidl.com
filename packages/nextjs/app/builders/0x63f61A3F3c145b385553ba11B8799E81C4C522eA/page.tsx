@@ -52,7 +52,7 @@ const OmSantoshwarPage: NextPage = () => {
             <div className="mb-6">
               <h3 className="text-xs uppercase tracking-wider text-gray-600 mb-3">Stack</h3>
               <div className="flex flex-wrap gap-2">
-                {["Solidity", "Cairo", "Rust", "TypeScript", "Foundry", "Hardhat"].map(tech => (
+                {["MERN", "Nextjs", "Ethereum", "Starknet", "Solidity, Cairo, Rust, JS, TS"].map(tech => (
                   <span
                     key={tech}
                     className="text-xs px-3 py-1 rounded-full bg-[#1a1a1a] border border-[#2a2a2a] text-gray-400"
