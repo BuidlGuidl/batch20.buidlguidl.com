@@ -1,9 +1,28 @@
 "use client";
 
-import Link from "next/link";
 import type { NextPage } from "next";
-import { BugAntIcon, MagnifyingGlassIcon } from "@heroicons/react/24/outline";
 import { useScaffoldReadContract } from "~~/hooks/scaffold-eth";
+
+const cards = [
+  {
+    emoji: "🏗️",
+    title: "Your Contracts",
+    desc: "Tinker with your smart conatracts under the Debug Contracts tab",
+    href: "/debug",
+  },
+  {
+    emoji: "🔎",
+    title: "Block Explorer",
+    desc: "Explore your local transactions with the Block Explorer tab",
+    href: "/blockexplorer",
+  },
+  {
+    emoji: "👷‍♀️👷‍♂️",
+    title: "Unique Builders",
+    desc: "Discover the personal pages of Batch #20 builder under /builders",
+    href: "/builders",
+  },
+];
 
 const Home: NextPage = () => {
   const { data: checkedInCounter } = useScaffoldReadContract({
@@ -12,49 +31,60 @@ const Home: NextPage = () => {
   });
 
   return (
-    <>
-      <div className="flex items-center flex-col grow pt-10">
-        <div className="px-5">
-          <h1 className="text-center">
-            <span className="block text-3xl mb-2 font-bold">Batch #20</span>
-            <span className="block text-2xl text-base-content/70">Graduation projects — builders showcase 🎉</span>
-          </h1>
-          <p className="text-center text-lg">
-            A curated collection of projects built by Batch 20 builders. Explore contracts, transactions, and demos
-            below.
-          </p>
-          <p className="text-lg flex gap-2 justify-center">
-            <span className="font-bold">Checked in builders count:</span>
-            <span>{checkedInCounter}</span>
-          </p>
-        </div>
+    <main className="from-[#cae9f2] to-[#eaf6fa] bg-linear-to-br dark:from-[#1A1B2F] dark:to-[#15325C] w-screen min-h-screen flex flex-col items-center justify-between p-8">
+      <div className="flex flex-col items-center mt-12 max-md:mt-8">
+        <p className="text-xl font-light">Welcome to</p>
+        <h1
+          className="font-semibold text-4xl text-[#00c2f3] leading-5  dark:text-[#2FD5FF]"
+          style={{ textShadow: "0px 2px 12px #2FD5FF" }}
+        >
+          Batch 20
+        </h1>
+        <p className="text-lg leading- font-light text-center mt-6">
+          Take a look at the{" "}
+          <a
+            target="_blank"
+            href="https://github.com/BuidlGuidl/batch20.buidlguidl.com"
+            className="underline cursor-pointer underline-offset-2"
+          >
+            Batch #20 Github repository
+          </a>
+        </p>
 
-        <div className="grow bg-base-300 w-full mt-16 px-8 py-12">
-          <div className="flex justify-center items-center gap-12 flex-col md:flex-row">
-            <div className="flex flex-col bg-base-100 px-10 py-10 text-center items-center max-w-xs rounded-3xl">
-              <BugAntIcon className="h-8 w-8 fill-secondary" />
-              <p>
-                Tinker with your smart contract using the{" "}
-                <Link href="/debug" passHref className="link">
-                  Debug Contracts
-                </Link>{" "}
-                tab.
-              </p>
-            </div>
-            <div className="flex flex-col bg-base-100 px-10 py-10 text-center items-center max-w-xs rounded-3xl">
-              <MagnifyingGlassIcon className="h-8 w-8 fill-secondary" />
-              <p>
-                Explore your local transactions with the{" "}
-                <Link href="/blockexplorer" passHref className="link">
-                  Block Explorer
-                </Link>{" "}
-                tab.
-              </p>
-            </div>
-          </div>
-        </div>
+        <p className="text-lg leading-0 font-semibold">
+          Unique checked in builders:{" "}
+          <span className="dark:text-[#2FD5FF] text-[#00c2f3]" style={{ textShadow: "0px 2px 8px #2FD5FF" }}>
+            {checkedInCounter}
+          </span>
+        </p>
       </div>
-    </>
+
+      <div className="grid grid-cols-3 gap-16 w-full max-w-6xl mt-6 max-md:grid-cols-1">
+        {cards.map((card, index) => (
+          <a
+            href={card.href}
+            key={index}
+            className="ring-1 ring-[#00c2f3] dark:ring-[#2FD5FF] bg-black/3 dark:bg-white/3 p-6 px-8 flex flex-col items-center text-center rounded-[25px] dark:shadow-[0_8px_14px_#2FD5FF] shadow-[0_8px_14px_#00c2f3] hover:shadow-[0_14px_18px_#2FD5FF] hover:-translate-y-2 cursor-pointer transition duration-300 hover:bg-current/7"
+          >
+            <p className="text-3xl">{card.emoji}</p>
+
+            <h2 className="text-xl my-8 underline underline-offset-2">{card.title}</h2>
+
+            <p>{card.desc}</p>
+          </a>
+        ))}
+      </div>
+
+      <div className="mt-10">
+        <p>
+          If you want to become a part of the next batch or level up your Ethereum skills, visit{" "}
+          <a target="_blank" href="https://speedrunethereum.com" className="underline cursor-pointer">
+            speedrunethereum.com
+          </a>{" "}
+          😉
+        </p>
+      </div>
+    </main>
   );
 };
 
