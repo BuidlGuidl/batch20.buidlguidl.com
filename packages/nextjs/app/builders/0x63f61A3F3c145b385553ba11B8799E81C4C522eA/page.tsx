@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import type { Metadata, NextPage } from "next";
 import { Address } from "~~/components/scaffold-eth";
@@ -19,9 +20,11 @@ const OmSantoshwarPage: NextPage = () => {
             {/* Avatar & Name */}
             <div className="text-center mb-8">
               <div className="w-32 h-32 mx-auto mb-4 rounded-full overflow-hidden border-2 border-zinc-200 dark:border-zinc-800">
-                <img
+                <Image
                   src="https://pbs.twimg.com/profile_images/1960647679467212800/_1yTudqB_400x400.jpg"
                   alt="Om Santoshwar"
+                  width={128}
+                  height={128}
                   className="w-full h-full object-cover"
                 />
               </div>
@@ -119,13 +122,11 @@ const OmSantoshwarPage: NextPage = () => {
             <h2 className="text-xl font-bold mb-5">Featured Work</h2>
             <div className="space-y-4">
               {/* Project 1 */}
-              <div className="group border border-zinc-200 dark:border-zinc-800 rounded-lg p-5 bg-white dark:bg-black hover:border-zinc-300 dark:hover:border-zinc-700 transition-all">
+              <div className="border border-zinc-200 dark:border-zinc-800 rounded-lg p-5 bg-white dark:bg-black">
                 <div className="flex items-start gap-3 mb-2">
                   <span className="text-2xl">🚀</span>
                   <div className="flex-1">
-                    <h3 className="font-bold text-base mb-1 group-hover:text-zinc-900 dark:group-hover:text-zinc-100 transition-colors">
-                      3SIPS: Autonomous DeFi Yield Engine
-                    </h3>
+                    <h3 className="font-bold text-base mb-1">3SIPS: Autonomous DeFi Yield Engine</h3>
                     <p className="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">
                       AI-powered investment platform with cross-chain asset management. Features automated DeFi
                       strategies, Chainlink automation, and Eliza AI agents for intelligent portfolio optimization.
@@ -153,13 +154,11 @@ const OmSantoshwarPage: NextPage = () => {
               </div>
 
               {/* Project 2 */}
-              <div className="group border border-zinc-200 dark:border-zinc-800 rounded-lg p-5 bg-white dark:bg-black hover:border-zinc-300 dark:hover:border-zinc-700 transition-all">
+              <div className="border border-zinc-200 dark:border-zinc-800 rounded-lg p-5 bg-white dark:bg-black">
                 <div className="flex items-start gap-3 mb-2">
                   <span className="text-2xl">🔐</span>
                   <div className="flex-1">
-                    <h3 className="font-bold text-base mb-1 group-hover:text-zinc-900 dark:group-hover:text-zinc-100 transition-colors">
-                      zkRail: Trustless Payment Rails
-                    </h3>
+                    <h3 className="font-bold text-base mb-1">zkRail: Trustless Payment Rails</h3>
                     <p className="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">
                       Decentralized crypto-to-fiat payment infrastructure leveraging intent solver networks and
                       zero-knowledge proofs for private UPI integration. Won at ETHIndia 2024.
@@ -187,13 +186,11 @@ const OmSantoshwarPage: NextPage = () => {
               </div>
 
               {/* Project 3 */}
-              <div className="group border border-zinc-200 dark:border-zinc-800 rounded-lg p-5 bg-white dark:bg-black hover:border-zinc-300 dark:hover:border-zinc-700 transition-all">
+              <div className="border border-zinc-200 dark:border-zinc-800 rounded-lg p-5 bg-white dark:bg-black">
                 <div className="flex items-start gap-3 mb-2">
                   <span className="text-2xl">🤖</span>
                   <div className="flex-1">
-                    <h3 className="font-bold text-base mb-1 group-hover:text-zinc-900 dark:group-hover:text-zinc-100 transition-colors">
-                      StarkPAI: AI-Powered Web3 Wallet
-                    </h3>
+                    <h3 className="font-bold text-base mb-1">StarkPAI: AI-Powered Web3 Wallet</h3>
                     <p className="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">
                       Smart contract wallet with natural language interface for Starknet. Enables conversational
                       blockchain interactions, transaction signing, and balance management.
