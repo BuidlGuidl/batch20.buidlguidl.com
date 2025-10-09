@@ -190,9 +190,9 @@ export const ProfileTabs = () => {
                       possible in decentralized technology.
                     </p>
                     <p>
-                      Currently working at ArenaX Labs, where I develop cutting-edge DeFi protocols and onchain gaming
-                      experiences. I&apos;m particularly interested in smart contract development, NFT collections, and
-                      creating seamless user experiences in the Web3 space.
+                      Previously working at ArenaX Labs, where I developed cutting-edge DeFi protocols and onchain
+                      gaming experiences. I&apos;m particularly interested in smart contract development, NFT
+                      collections, and creating seamless user experiences in the Web3 space.
                     </p>
                     <p>
                       When I&apos;m not coding, you can find me contributing to open source projects, exploring new
