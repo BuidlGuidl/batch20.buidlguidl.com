@@ -119,7 +119,7 @@ const EinamigPage: NextPage = () => {
           {/* Center: Avatar & Address */}
           <div className="rounded-2xl border-2 border-zinc-200 dark:border-zinc-800 bg-white/80 dark:bg-zinc-900/80 backdrop-blur p-6 shadow-lg flex flex-col items-center justify-center">
             <div className="relative group mb-4">
-              <div className="absolute -inset-1 bg-gradient-to-r from-purple-600 to-violet-600 rounded-3xl blur opacity-25 group-hover:opacity-40 transition duration-300" />
+              <div className="absolute -inset-1 bg-gradient-to-r from-purple-600 to-violet-600 rounded-3xl blur opacity-25  transition duration-300" />
               <Image
                 src="https://avatars.githubusercontent.com/u/90649616?v=4"
                 alt="avatar"
@@ -142,7 +142,7 @@ const EinamigPage: NextPage = () => {
                   target="_blank"
                   rel="noopener noreferrer"
                   prefetch={false}
-                  className="group w-10 h-10 rounded-lg bg-gradient-to-br from-purple-100 to-violet-100 dark:from-purple-900/50 dark:to-violet-900/50 border border-purple-200 dark:border-purple-700 flex items-center justify-center hover:scale-110 hover:border-purple-400 dark:hover:border-purple-500 transition-all"
+                  className="group w-10 h-10 rounded-lg bg-gradient-to-br from-purple-100 to-violet-100 dark:from-purple-900/50 dark:to-violet-900/50 border border-purple-200 dark:border-purple-700 flex items-center justify-center  transition-all hover:scale-110 hover:border-purple-400 dark:hover:border-purple-500"
                   aria-label={s.label}
                 >
                   {s.icon}
@@ -163,7 +163,7 @@ const EinamigPage: NextPage = () => {
               {TECH_STACK.map(item => (
                 <span
                   key={item}
-                  className="px-3 py-1.5 rounded-lg bg-gradient-to-r from-purple-50 to-violet-50 dark:from-purple-900/30 dark:to-violet-900/30 border border-purple-200 dark:border-purple-700 text-sm font-medium text-purple-700 dark:text-purple-300 hover:scale-105 transition-transform"
+                  className="px-3 py-1.5 rounded-lg bg-gradient-to-r from-purple-50 to-violet-50 dark:from-purple-900/30 dark:to-violet-900/30 border border-purple-200 dark:border-purple-700 text-sm font-medium text-purple-700 dark:text-purple-300  transition-transform"
                 >
                   {item}
                 </span>
@@ -217,10 +217,7 @@ const EinamigPage: NextPage = () => {
                 };
 
                 return (
-                  <article
-                    key={idx}
-                    className={`group rounded-xl border-2 p-4 transition-all hover:scale-[1.02] ${getColorClasses()}`}
-                  >
+                  <article key={idx} className={`group rounded-xl border-2 p-4 transition-all  ${getColorClasses()}`}>
                     <div className="flex items-start justify-between gap-3">
                       <div className="flex-1">
                         <h3 className="font-bold text-sm">{cert.name}</h3>
